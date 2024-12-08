@@ -12,7 +12,7 @@ This repository contains an cpp implementation of OXT(oblivious cross-tags) prot
 * Apache Thrift 0.13.0
 * Mysql  8.3.0
 
-please alter the CmakeList.txt according to your own include path and lib path of thrift and mysql.
+**please alter the CmakeList.txt according to your own include path and lib path of thrift and mysql.**
 
 ## Prepare
 
