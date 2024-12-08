@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.18)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(DCMAKE_EXPORT_COMPILE_COMMANDS, 1)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
+
+project(VHCSSE)
+
+set(OWN_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+set(THIRD_PARTY_INCLUDE_DIR /usr/local/include/ /opt/homebrew/include /opt/homebrew/opt/thrift@0.13/include
+    /usr/local/mysql/include/)
+set(THIRD_PARTY_LIB_DIR /usr/local/lib /opt/homebrew/lib /opt/homebrew/opt/thrift@0.13/lib
+    /usr/local/mysql/lib/)
+
+include_directories(${OWN_INCLUDE_DIR} ${THIRD_PARTY_INCLUDE_DIR})
+link_directories(${THIRD_PARTY_LIB_DIR})
+
+add_subdirectory(test)
+add_subdirectory(src)
